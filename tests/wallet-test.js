@@ -1,7 +1,7 @@
 const WalletAPI = require('../dist/index').WalletAPI
 const client = new WalletAPI(
-  'eVXxYITpKBMELRpj',
-  'RKEHxk8Bq4Q5KVCUyqKqHcpzfXfqJj4d+zZfi//d8js=',
+  'WALLET_KEY',
+  'SECRET_KEY',
   'trx'
 )
 
