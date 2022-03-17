@@ -21,9 +21,11 @@ const WalletAPI = require('@cryptounifier/node-sdk').WalletAPI
 
 const client = new WalletAPI('WALLET_KEY', 'SECRET_KEY', 'btc');
 
-client.getBalance().then((balance) => (console.log(balance)));
+const balance = await client.getBalance();
+console.log(balance)
 
-client.getDepositAddresses().then((depositAddresses) => (console.log(depositAddresses)));
+const depositAddresses = await client.getDepositAddresses();
+console.log(depositAddresses)
 ```
 
 ### Using the Merchant API client
@@ -35,7 +37,8 @@ const MerchantAPI = require('@cryptounifier/node-sdk').MerchantAPI;
 
 const client = new MerchantAPI('MERCHANT_KEY', 'SECRET_KEY');
 
-client.createInvoice(['btc', 'bch', 'eth']).then((invoice) => console.log(invoice));
+const invoice = await client.createInvoice(['btc', 'bch', 'eth']);
+console.log(invoice)
 ```
 
 ## License
