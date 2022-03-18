@@ -2,14 +2,23 @@ import { request } from 'https'
 import { stringify } from 'querystring'
 
 export abstract class BaseAPI {
-  private hostname = 'cryptounifier.io'
-  private basePath = '/api/v1/'
+  private readonly defaultUrl = 'https://cryptounifier.io/api/v1/';
+  private hostname = ''
+  private basepath = ''
   // protected apiKey: string = ''
   // protected secretKey: string = ''
 
-  constructor(protected suffix: string, protected readonly headers: any) {}
+  constructor(protected suffix: string, protected readonly headers: any) {
+    this.setApiUrl(this.defaultUrl)
+  }
 
-  protected executeRequest(
+  public setApiUrl(apiUrl: string) {
+    const url = new URL(apiUrl)
+    this.hostname = url.hostname
+    this.basepath = url.pathname
+  }
+
+  public executeRequest(
     method: 'POST' | 'GET',
     uri: string,
     body?: { [key: string]: any }
@@ -20,7 +29,7 @@ export abstract class BaseAPI {
       const options = {
         hostname: this.hostname,
         port: 443,
-        path: this.basePath + this.suffix + '/' + uri,
+        path: this.basepath + this.suffix + '/' + uri,
         method,
         headers: this.headers,
       }
