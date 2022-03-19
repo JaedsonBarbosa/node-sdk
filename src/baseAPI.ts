@@ -5,8 +5,6 @@ export abstract class BaseAPI {
   private readonly defaultUrl = 'https://cryptounifier.io/api/v1/';
   private hostname = ''
   private basepath = ''
-  // protected apiKey: string = ''
-  // protected secretKey: string = ''
 
   constructor(protected suffix: string, protected readonly headers: any) {
     this.setApiUrl(this.defaultUrl)
@@ -42,10 +40,10 @@ export abstract class BaseAPI {
         }
       }
 
-      const req = request(options, (res) => {
+      const req = request(options, (res: any) => {
         res.setEncoding('utf8')
         let body = ''
-        res.on('data', (data) => (body += data))
+        res.on('data', (data: any) => (body += data))
         res.on('end', () => {
           if (res.statusCode === 200) {
             const json = JSON.parse(body)
@@ -60,7 +58,7 @@ export abstract class BaseAPI {
         })
       })
 
-      req.on('error', (e) => reject(e))
+      req.on('error', (e: any) => reject(e))
 
       if (method === 'POST') {
         req.write(postData)

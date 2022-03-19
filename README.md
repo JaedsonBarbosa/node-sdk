@@ -7,7 +7,7 @@ A simple Node.JS SDK for interacting with [Crypto Unifier](https://cryptounifier
 You can install the package via NPM:
 
 ```bash
-npm install @cryptounifier/node-sdk
+npm install @cryptounifier/nodejs-sdk
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @cryptounifier/node-sdk
 You can use the `WalletAPI` class for convenient access to API methods. Some are defined in the code:
 
 ```node
-const WalletAPI = require('@cryptounifier/node-sdk').WalletAPI
+const WalletAPI = require('@cryptounifier/nodejs-sdk').WalletAPI
 
 const client = new WalletAPI('WALLET_KEY', 'SECRET_KEY', 'btc');
 
@@ -33,7 +33,7 @@ console.log(depositAddresses)
 You can use the `MerchantAPI` class for convenient access to API methods. Some are defined in the code:
 
 ```node
-const MerchantAPI = require('@cryptounifier/node-sdk').MerchantAPI;
+const MerchantAPI = require('@cryptounifier/nodejs-sdk').MerchantAPI;
 
 const client = new MerchantAPI('MERCHANT_KEY', 'SECRET_KEY');
 

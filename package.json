@@ -1,5 +1,5 @@
 {
-  "name": "@cryptounifier/node-sdk",
+  "name": "@cryptounifier/nodejs-sdk",
   "version": "1.0.0",
   "description": "CryptoUnifier API Node.JS Integration.",
   "main": "dist/index.js",
