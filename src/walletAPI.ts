@@ -26,8 +26,12 @@ export class WalletAPI extends BaseAPI {
     return this.executeRequest('GET', 'balance')
   }
 
-  public validateAddresses(addresses: string[]) {
-    const body = { addresses: JSON.stringify(addresses) }
+  public validateAddresses(
+    addresses: string[],
+    validateActivation?: boolean,
+  ) {
+    const body: any = { addresses: JSON.stringify(addresses) }
+    if (validateActivation) body.validate_activation = validateActivation
     return this.executeRequest('POST', 'validate-addresses', body)
   }
 
