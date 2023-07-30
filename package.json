@@ -1,10 +1,12 @@
 {
   "name": "@cryptounifier/nodejs-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CryptoUnifier API Node.JS Integration.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "prepare": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
